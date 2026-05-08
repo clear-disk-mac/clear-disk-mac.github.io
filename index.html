@@ -1,1 +1,1076 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Newstatsdom is the professional SaaS analytics platform built for B2B teams. Turn complex data into actionable insights with real-time dashboards, team collaboration, and enterprise-grade security.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0f172a">
+<meta property="og:title" content="Newstatsdom — Analytics Platform for B2B Teams">
+<meta property="og:description" content="Turn complex data into actionable insights. Newstatsdom gives B2B teams real-time analytics, collaborative dashboards, and enterprise-grade security in one unified platform.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://newstatsdom.com">
+<link rel="canonical" href="https://newstatsdom.com">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230f172a'/><rect x='6' y='18' width='4' height='8' rx='1' fill='%236366f1'/><rect x='14' y='12' width='4' height='14' rx='1' fill='%236366f1'/><rect x='22' y='6' width='4' height='20' rx='1' fill='%236366f1'/></svg>">
+<title>Newstatsdom — Analytics Platform for B2B Teams</title>
+<script src="analytics.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#ffffff;
+--bg-secondary:#f8fafc;
+--bg-card:#ffffff;
+--border:#e2e8f0;
+--text-primary:#0f172a;
+--text-secondary:#475569;
+--text-muted:#94a3b8;
+--accent:#6366f1;
+--accent-dark:#4f46e5;
+--accent-light:#eef2ff;
+--accent-glow:rgba(99,102,241,0.15);
+--nav-bg:rgba(255,255,255,0.9);
+--shadow-sm:0 1px 3px rgba(0,0,0,0.08),0 1px 2px rgba(0,0,0,0.04);
+--shadow-md:0 4px 16px rgba(0,0,0,0.08),0 2px 6px rgba(0,0,0,0.04);
+--shadow-lg:0 20px 40px rgba(0,0,0,0.1),0 8px 16px rgba(0,0,0,0.06);
+--radius:12px;
+--radius-lg:20px;
+--font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+@media(prefers-color-scheme:dark){
+:root{
+--bg:#0a0f1e;
+--bg-secondary:#0f172a;
+--bg-card:#111827;
+--border:#1e293b;
+--text-primary:#f1f5f9;
+--text-secondary:#94a3b8;
+--text-muted:#475569;
+--accent:#818cf8;
+--accent-dark:#6366f1;
+--accent-light:#1e1b4b;
+--accent-glow:rgba(129,140,248,0.12);
+--nav-bg:rgba(10,15,30,0.92);
+--shadow-sm:0 1px 3px rgba(0,0,0,0.4),0 1px 2px rgba(0,0,0,0.3);
+--shadow-md:0 4px 16px rgba(0,0,0,0.4),0 2px 6px rgba(0,0,0,0.3);
+--shadow-lg:0 20px 40px rgba(0,0,0,0.5),0 8px 16px rgba(0,0,0,0.4);
+}
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font);background:var(--bg);color:var(--text-primary);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+button{font-family:var(--font);cursor:pointer;border:none;outline:none}
+.skip-link{position:absolute;top:-100%;left:1rem;background:var(--accent);color:#fff;padding:0.75rem 1.5rem;border-radius:var(--radius);font-weight:600;z-index:9999;transition:top 0.2s}
+.skip-link:focus{top:1rem}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:box-shadow 0.3s}
+nav.scrolled{box-shadow:var(--shadow-md)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:0.625rem;font-weight:700;font-size:1.125rem;letter-spacing:-0.02em;color:var(--text-primary)}
+.nav-logo-icon{width:32px;height:32px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center}
+.nav-links{display:flex;align-items:center;gap:0.25rem}
+.nav-links a{padding:0.5rem 0.875rem;border-radius:8px;font-size:0.9rem;font-weight:500;color:var(--text-secondary);transition:background 0.2s,color 0.2s}
+.nav-links a:hover{background:var(--bg-secondary);color:var(--text-primary)}
+.nav-cta{display:flex;align-items:center;gap:0.75rem}
+.btn-ghost{padding:0.5rem 1rem;border-radius:8px;font-size:0.9rem;font-weight:500;color:var(--text-secondary);background:transparent;border:1px solid var(--border);transition:all 0.2s}
+.btn-ghost:hover{background:var(--bg-secondary);color:var(--text-primary);border-color:var(--text-muted)}
+.btn-primary{padding:0.5625rem 1.25rem;border-radius:8px;font-size:0.9rem;font-weight:600;color:#fff;background:var(--accent);border:1px solid transparent;transition:all 0.2s;box-shadow:0 1px 3px rgba(99,102,241,0.3)}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-1px);box-shadow:0 4px 12px rgba(99,102,241,0.4)}
+.btn-primary:active{transform:translateY(0)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;padding:8px;border-radius:8px;border:1px solid var(--border)}
+.nav-hamburger span{display:block;width:20px;height:2px;background:var(--text-primary);border-radius:2px;transition:all 0.3s}
+.mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);padding:1rem 1.5rem;z-index:999;flex-direction:column;gap:0.25rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:0.75rem 1rem;border-radius:8px;font-size:0.95rem;font-weight:500;color:var(--text-secondary);transition:background 0.2s,color 0.2s}
+.mobile-menu a:hover{background:var(--bg-secondary);color:var(--text-primary)}
+.mobile-menu-cta{display:flex;gap:0.75rem;margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--border)}
+.mobile-menu-cta .btn-primary,.mobile-menu-cta .btn-ghost{flex:1;text-align:center}
+@media(max-width:768px){
+.nav-links{display:none}
+.nav-cta{display:none}
+.nav-hamburger{display:flex}
+}
+
+/* SECTIONS */
+section{padding:100px 0}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.section-label{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.8125rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:0.375rem 0.875rem;border-radius:100px;margin-bottom:1.25rem}
+.section-title{font-size:clamp(2rem,4vw,2.75rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;color:var(--text-primary);margin-bottom:1rem}
+.section-subtitle{font-size:1.125rem;color:var(--text-secondary);line-height:1.7;max-width:560px}
+.text-center{text-align:center}
+.text-center .section-subtitle{margin:0 auto}
+
+/* HERO */
+#hero{padding:160px 0 100px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,var(--accent-glow),transparent);pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:0.4;pointer-events:none;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black,transparent)}
+.hero-content{position:relative;text-align:center;max-width:800px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.8125rem;font-weight:600;color:var(--accent);background:var(--accent-light);border:1px solid rgba(99,102,241,0.2);padding:0.375rem 1rem;border-radius:100px;margin-bottom:2rem}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(0.85)}}
+.hero-h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:900;letter-spacing:-0.04em;line-height:1.08;color:var(--text-primary);margin-bottom:1.5rem}
+.hero-h1 span{background:linear-gradient(135deg,var(--accent),#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.2rem;color:var(--text-secondary);line-height:1.7;max-width:580px;margin:0 auto 2.5rem}
+.hero-cta{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
+.btn-hero-primary{padding:0.875rem 2rem;border-radius:10px;font-size:1rem;font-weight:700;color:#fff;background:var(--accent);border:none;transition:all 0.25s;box-shadow:0 4px 20px rgba(99,102,241,0.35);display:inline-flex;align-items:center;gap:0.5rem}
+.btn-hero-primary:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(99,102,241,0.45)}
+.btn-hero-secondary{padding:0.875rem 2rem;border-radius:10px;font-size:1rem;font-weight:600;color:var(--text-primary);background:var(--bg-card);border:1px solid var(--border);transition:all 0.25s;display:inline-flex;align-items:center;gap:0.5rem;box-shadow:var(--shadow-sm)}
+.btn-hero-secondary:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.hero-note{margin-top:1.25rem;font-size:0.85rem;color:var(--text-muted)}
+.hero-dashboard{position:relative;margin-top:5rem;max-width:900px;margin-left:auto;margin-right:auto}
+.hero-dashboard-inner{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);overflow:hidden;padding:1.5rem}
+.dashboard-header{display:flex;align-items:center;gap:0.5rem;margin-bottom:1.5rem}
+.dot{width:12px;height:12px;border-radius:50%}
+.dot-red{background:#ef4444}
+.dot-yellow{background:#f59e0b}
+.dot-green{background:#22c55e}
+.dashboard-title{font-size:0.85rem;font-weight:600;color:var(--text-muted);margin-left:0.5rem}
+.dashboard-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
+.dash-stat{background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;padding:1rem}
+.dash-stat-label{font-size:0.75rem;color:var(--text-muted);font-weight:500;margin-bottom:0.375rem}
+.dash-stat-value{font-size:1.5rem;font-weight:800;color:var(--text-primary);letter-spacing:-0.03em}
+.dash-stat-change{font-size:0.75rem;color:#22c55e;font-weight:600;margin-top:0.25rem}
+.dash-chart{background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;padding:1.25rem;height:140px;position:relative;overflow:hidden}
+.chart-bars{display:flex;align-items:flex-end;gap:6px;height:100%}
+.bar{flex:1;border-radius:4px 4px 0 0;background:linear-gradient(to top,var(--accent),#a78bfa);opacity:0.8;transition:opacity 0.2s}
+.bar:hover{opacity:1}
+@media(max-width:640px){.dashboard-grid{grid-template-columns:repeat(2,1fr)}.hero-dashboard{display:none}}
+
+/* TRUST BAR */
+#trust{padding:40px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--bg-secondary)}
+.trust-inner{display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap}
+.trust-stat{text-align:center}
+.trust-stat-num{font-size:1.75rem;font-weight:900;letter-spacing:-0.04em;color:var(--text-primary)}
+.trust-stat-label{font-size:0.8125rem;color:var(--text-muted);font-weight:500;margin-top:0.125rem}
+.trust-divider{width:1px;height:40px;background:var(--border)}
+@media(max-width:640px){.trust-divider{display:none}.trust-inner{gap:2rem}}
+
+/* FEATURES */
+#features{background:var(--bg)}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3.5rem}
+.feature-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;transition:all 0.3s;position:relative;overflow:hidden}
+.feature-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 0% 0%,var(--accent-glow),transparent 60%);opacity:0;transition:opacity 0.3s}
+.feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(99,102,241,0.25)}
+.feature-card:hover::before{opacity:1}
+.feature-icon{width:48px;height:48px;border-radius:12px;background:var(--accent-light);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;color:var(--accent);transition:transform 0.3s}
+.feature-card:hover .feature-icon{transform:scale(1.1)}
+.feature-title{font-size:1.125rem;font-weight:700;color:var(--text-primary);margin-bottom:0.625rem;letter-spacing:-0.02em}
+.feature-desc{font-size:0.9375rem;color:var(--text-secondary);line-height:1.65}
+
+/* HOW IT WORKS */
+#how-it-works{background:var(--bg-secondary)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3.5rem;position:relative}
+.steps::before{content:'';position:absolute;top:28px;left:calc(16.67% + 24px);right:calc(16.67% + 24px);height:2px;background:linear-gradient(90deg,var(--accent),#a78bfa);opacity:0.3}
+.step{text-align:center;position:relative}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--accent);color:#fff;font-size:1.125rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;box-shadow:0 4px 16px rgba(99,102,241,0.35);position:relative;z-index:1}
+.step-title{font-size:1.125rem;font-weight:700;color:var(--text-primary);margin-bottom:0.625rem;letter-spacing:-0.02em}
+.step-desc{font-size:0.9375rem;color:var(--text-secondary);line-height:1.65}
+@media(max-width:768px){.steps{grid-template-columns:1fr;gap:3rem}.steps::before{display:none}}
+
+/* ABOUT */
+#about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:1rem}
+.about-text .section-subtitle{margin-bottom:2rem}
+.about-values{display:flex;flex-direction:column;gap:1rem}
+.about-value{display:flex;align-items:flex-start;gap:1rem}
+.about-value-icon{width:40px;height:40px;border-radius:10px;background:var(--accent-light);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;margin-top:2px}
+.about-value-text h4{font-size:1rem;font-weight:700;color:var(--text-primary);margin-bottom:0.25rem}
+.about-value-text p{font-size:0.9rem;color:var(--text-secondary);line-height:1.6}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.team-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:all 0.3s}
+.team-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:rgba(99,102,241,0.2)}
+.team-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#a78bfa);display:flex;align-items:center;justify-content:center;font-size:1.125rem;font-weight:800;color:#fff;margin-bottom:0.875rem;letter-spacing:-0.02em}
+.team-name{font-size:0.9375rem;font-weight:700;color:var(--text-primary);margin-bottom:0.125rem}
+.team-role{font-size:0.8125rem;color:var(--text-muted);font-weight:500;margin-bottom:0.25rem}
+.team-exp{font-size:0.8rem;color:var(--accent);font-weight:600}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;gap:3rem}.team-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.team-grid{grid-template-columns:1fr 1fr}}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--bg-secondary)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.testimonial-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;transition:all 0.3s;display:flex;flex-direction:column;gap:1.25rem}
+.testimonial-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:rgba(99,102,241,0.2)}
+.testimonial-stars{display:flex;gap:3px}
+.star{color:#f59e0b;font-size:1rem}
+.testimonial-text{font-size:0.9375rem;color:var(--text-secondary);line-height:1.7;flex:1;font-style:italic}
+.testimonial-author{display:flex;align-items:center;gap:0.875rem}
+.testimonial-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#a78bfa);display:flex;align-items:center;justify-content:center;font-size:0.875rem;font-weight:800;color:#fff;flex-shrink:0}
+.testimonial-name{font-size:0.9rem;font-weight:700;color:var(--text-primary)}
+.testimonial-company{font-size:0.8rem;color:var(--text-muted)}
+@media(max-width:900px){.testimonials-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.testimonials-grid{grid-template-columns:1fr}}
+
+/* FAQ */
+#faq{background:var(--bg)}
+.faq-list{max-width:720px;margin:3.5rem auto 0;display:flex;flex-direction:column;gap:0.75rem}
+.faq-item{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color 0.2s}
+.faq-item.open{border-color:rgba(99,102,241,0.3)}
+.faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;background:none;border:none;text-align:left;font-size:0.9375rem;font-weight:600;color:var(--text-primary);cursor:pointer;gap:1rem;transition:color 0.2s}
+.faq-question:hover{color:var(--accent)}
+.faq-chevron{width:20px;height:20px;color:var(--text-muted);flex-shrink:0;transition:transform 0.3s}
+.faq-item.open .faq-chevron{transform:rotate(180deg);color:var(--accent)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s}
+.faq-answer-inner{padding:0 1.5rem 1.25rem;font-size:0.9rem;color:var(--text-secondary);line-height:1.7}
+.faq-item.open .faq-answer{max-height:400px}
+
+/* CONTACT */
+#contact{background:var(--bg-secondary)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;margin-top:3.5rem;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:1.5rem}
+.contact-info-item{display:flex;align-items:flex-start;gap:1rem}
+.contact-info-icon{width:44px;height:44px;border-radius:10px;background:var(--accent-light);display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0}
+.contact-info-text h4{font-size:0.875rem;font-weight:700;color:var(--text-primary);margin-bottom:0.25rem}
+.contact-info-text p,.contact-info-text a{font-size:0.9rem;color:var(--text-secondary);line-height:1.6}
+.contact-info-text a:hover{color:var(--accent)}
+.contact-form{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2.5rem}
+.form-group{margin-bottom:1.25rem}
+.form-label{display:block;font-size:0.875rem;font-weight:600;color:var(--text-primary);margin-bottom:0.5rem}
+.form-input{width:100%;padding:0.75rem 1rem;border-radius:8px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--text-primary);font-family:var(--font);font-size:0.9375rem;transition:all 0.2s}
+.form-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(99,102,241,0.12)}
+.form-input.error{border-color:#ef4444;box-shadow:0 0 0 3px rgba(239,68,68,0.12)}
+.form-input::placeholder{color:var(--text-muted)}
+textarea.form-input{resize:vertical;min-height:120px}
+.form-error{font-size:0.8rem;color:#ef4444;margin-top:0.375rem;display:none}
+.form-error.visible{display:block}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-submit{width:100%;padding:0.875rem;border-radius:8px;font-size:1rem;font-weight:700;color:#fff;background:var(--accent);border:none;cursor:pointer;transition:all 0.25s;display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-top:0.5rem}
+.form-submit:hover{background:var(--accent-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(99,102,241,0.4)}
+.form-submit:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--text-primary);color:var(--bg);padding:1rem 1.75rem;border-radius:10px;font-size:0.9rem;font-weight:600;z-index:9999;opacity:0;transition:all 0.4s;pointer-events:none;white-space:nowrap;box-shadow:var(--shadow-lg)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:2.5rem}}
+@media(max-width:480px){.form-row{grid-template-columns:1fr}}
+
+/* LEGAL */
+#privacy,#terms{background:var(--bg)}
+#terms{background:var(--bg-secondary)}
+.legal-content{max-width:800px;margin:3rem auto 0}
+.legal-content h3{font-size:1.125rem;font-weight:700;color:var(--text-primary);margin:2rem 0 0.75rem}
+.legal-content p{font-size:0.9375rem;color:var(--text-secondary);line-height:1.75;margin-bottom:1rem}
+.legal-content ul{padding-left:1.5rem;margin-bottom:1rem}
+.legal-content ul li{font-size:0.9375rem;color:var(--text-secondary);line-height:1.7;margin-bottom:0.375rem}
+.legal-date{font-size:0.85rem;color:var(--text-muted);margin-bottom:2rem;font-style:italic}
+
+/* FOOTER */
+footer{background:var(--bg-secondary);border-top:1px solid var(--border);padding:72px 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:4rem}
+.footer-brand .nav-logo{margin-bottom:1rem;display:inline-flex}
+.footer-brand p{font-size:0.9rem;color:var(--text-muted);line-height:1.7;max-width:280px;margin-bottom:1.5rem}
+.footer-social{display:flex;gap:0.75rem}
+.social-btn{width:38px;height:38px;border-radius:8px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);transition:all 0.2s}
+.social-btn:hover{background:var(--accent-light);border-color:rgba(99,102,241,0.3);color:var(--accent)}
+.footer-col h4{font-size:0.8125rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.25rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.625rem}
+.footer-col ul li a{font-size:0.9rem;color:var(--text-secondary);transition:color 0.2s}
+.footer-col ul li a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--border);padding:1.5rem 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:0.85rem;color:var(--text-muted)}
+.footer-bottom-links{display:flex;gap:1.5rem}
+.footer-bottom-links a{font-size:0.85rem;color:var(--text-muted);transition:color 0.2s}
+.footer-bottom-links a:hover{color:var(--accent)}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;text-align:center}}
+
+/* COOKIE BANNER */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9998;background:var(--bg-card);border-top:1px solid var(--border);padding:1.25rem 1.5rem;box-shadow:0 -4px 20px rgba(0,0,0,0.12);transform:translateY(100%);transition:transform 0.4s ease}
+.cookie-banner.visible{transform:translateY(0)}
+.cookie-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.cookie-text{font-size:0.875rem;color:var(--text-secondary);line-height:1.6;flex:1;min-width:240px}
+.cookie-text a{color:var(--accent);text-decoration:underline}
+.cookie-actions{display:flex;gap:0.75rem;flex-shrink:0}
+.btn-cookie-decline{padding:0.5rem 1.125rem;border-radius:8px;font-size:0.875rem;font-weight:600;color:var(--text-secondary);background:transparent;border:1px solid var(--border);transition:all 0.2s}
+.btn-cookie-decline:hover{background:var(--bg-secondary);border-color:var(--text-muted)}
+.btn-cookie-accept{padding:0.5rem 1.125rem;border-radius:8px;font-size:0.875rem;font-weight:600;color:#fff;background:var(--accent);border:none;transition:all 0.2s}
+.btn-cookie-accept:hover{background:var(--accent-dark)}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-delay-1{transition-delay:0.1s}
+.fade-in-delay-2{transition-delay:0.2s}
+.fade-in-delay-3{transition-delay:0.3s}
+.fade-in-delay-4{transition-delay:0.4s}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="Newstatsdom home">
+      <div class="nav-logo-icon" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="10" width="3" height="7" rx="1" fill="white"/>
+          <rect x="7" y="6" width="3" height="11" rx="1" fill="white"/>
+          <rect x="13" y="1" width="3" height="16" rx="1" fill="white"/>
+        </svg>
+      </div>
+      Newstatsdom
+    </a>
+    <div class="nav-links" role="list">
+      <a href="#features" role="listitem">Features</a>
+      <a href="#how-it-works" role="listitem">How It Works</a>
+      <a href="#about" role="listitem">About</a>
+      <a href="#testimonials" role="listitem">Testimonials</a>
+      <a href="#faq" role="listitem">FAQ</a>
+      <a href="#contact" role="listitem">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Sign In</button>
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Start Free Trial</button>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="#features" onclick="closeMobileMenu()">Features</a>
+  <a href="#how-it-works" onclick="closeMobileMenu()">How It Works</a>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#testimonials" onclick="closeMobileMenu()">Testimonials</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <div class="mobile-menu-cta">
+    <button class="btn-ghost" onclick="closeMobileMenu()">Sign In</button>
+    <button class="btn-primary" onclick="closeMobileMenu();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Start Free Trial</button>
+  </div>
+</div>
+
+<main id="main-content">
+
+<!-- HERO -->
+<section id="hero" aria-label="Hero section">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge" aria-label="New: Version 3.0 now available">
+        <span class="hero-badge-dot" aria-hidden="true"></span>
+        Introducing Newstatsdom 3.0 — Now GA
+      </div>
+      <h1 class="hero-h1">Analytics That <span>Drive Decisions</span><br>Not Just Reports</h1>
+      <p class="hero-sub">Newstatsdom gives B2B teams a unified analytics workspace — real-time dashboards, collaborative insights, and enterprise security built for the way modern teams actually work.</p>
+      <div class="hero-cta">
+        <button class="btn-hero-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" aria-label="Start your free 14-day trial">
+          Start Free Trial
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="btn-hero-secondary" onclick="document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'})" aria-label="See how Newstatsdom works">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M6.5 5.5l4 2.5-4 2.5V5.5z" fill="currentColor"/></svg>
+          See How It Works
+        </button>
+      </div>
+      <p class="hero-note">No credit card required &nbsp;·&nbsp; 14-day free trial &nbsp;·&nbsp; Cancel anytime</p>
+    </div>
+    <div class="hero-dashboard" aria-hidden="true">
+      <div class="hero-dashboard-inner">
+        <div class="dashboard-header">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+          <span class="dashboard-title">Newstatsdom — Team Analytics Overview</span>
+        </div>
+        <div class="dashboard-grid">
+          <div class="dash-stat">
+            <div class="dash-stat-label">Monthly Active Users</div>
+            <div class="dash-stat-value">84,291</div>
+            <div class="dash-stat-change">↑ 12.4% vs last month</div>
+          </div>
+          <div class="dash-stat">
+            <div class="dash-stat-label">Avg. Session Duration</div>
+            <div class="dash-stat-value">8m 42s</div>
+            <div class="dash-stat-change">↑ 3.1% vs last month</div>
+          </div>
+          <div class="dash-stat">
+            <div class="dash-stat-label">Conversion Rate</div>
+            <div class="dash-stat-value">4.87%</div>
+            <div class="dash-stat-change">↑ 0.6% vs last month</div>
+          </div>
+          <div class="dash-stat">
+            <div class="dash-stat-label">Revenue Attributed</div>
+            <div class="dash-stat-value">$2.4M</div>
+            <div class="dash-stat-change">↑ 18.9% vs last month</div>
+          </div>
+        </div>
+        <div class="dash-chart">
+          <div class="chart-bars" aria-label="Monthly performance chart">
+            <div class="bar" style="height:45%"></div>
+            <div class="bar" style="height:60%"></div>
+            <div class="bar" style="height:52%"></div>
+            <div class="bar" style="height:75%"></div>
+            <div class="bar" style="height:68%"></div>
+            <div class="bar" style="height:82%"></div>
+            <div class="bar" style="height:71%"></div>
+            <div class="bar" style="height:90%"></div>
+            <div class="bar" style="height:85%"></div>
+            <div class="bar" style="height:95%"></div>
+            <div class="bar" style="height:88%"></div>
+            <div class="bar" style="height:100%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section id="trust" aria-label="Key statistics">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-stat fade-in">
+        <div class="trust-stat-num">12,847</div>
+        <div class="trust-stat-label">B2B Teams Active</div>
+      </div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-stat fade-in fade-in-delay-1">
+        <div class="trust-stat-num">99.97%</div>
+        <div class="trust-stat-label">Uptime SLA</div>
+      </div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-stat fade-in fade-in-delay-2">
+        <div class="trust-stat-num">4.8×</div>
+        <div class="trust-stat-label">Faster Insights</div>
+      </div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-stat fade-in fade-in-delay-3">
+        <div class="trust-stat-num">340ms</div>
+        <div class="trust-stat-label">Avg. Query Response</div>
+      </div>
+      <div class="trust-divider" aria-hidden="true"></div>
+      <div class="trust-stat fade-in fade-in-delay-4">
+        <div class="trust-stat-num">SOC 2</div>
+        <div class="trust-stat-label">Type II Certified</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" aria-labelledby="features-title">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-label" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 0L8.57 4.93H14L9.71 7.97 11.29 13 7 9.96 2.71 13 4.29 7.97 0 4.93H5.43L7 0z"/></svg>
+        Platform Features
+      </div>
+      <h2 class="section-title" id="features-title">Everything your team needs to act on data</h2>
+      <p class="section-subtitle">Purpose-built for B2B teams who need clarity, speed, and confidence in every decision they make.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-in fade-in-delay-1">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8l3 3 2-2 3 3"/></svg>
+        </div>
+        <h3 class="feature-title">Real-Time Dashboards</h3>
+        <p class="feature-desc">Build custom dashboards that update live as your data changes. Drag-and-drop widgets, flexible layouts, and pixel-perfect visualizations — no engineering required.</p>
+      </div>
+      <div class="feature-card fade-in fade-in-delay-2">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="feature-title">Team Collaboration</h3>
+        <p class="feature-desc">Share insights, annotate charts, and assign follow-up actions directly inside Newstatsdom. Keep your entire team aligned with shared workspaces and granular permissions.</p>
+      </div>
+      <div class="feature-card fade-in fade-in-delay-3">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <h3 class="feature-title">Unified Data Pipeline</h3>
+        <p class="feature-desc">Connect 200+ data sources in minutes — CRMs, data warehouses, marketing tools, and custom APIs. One platform, one source of truth, zero data silos.</p>
+      </div>
+      <div class="feature-card fade-in fade-in-delay-4">
+        <div class="feature-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3 class="feature-title">Enterprise-Grade Security</h3>
+        <p class="feature-desc">SOC 2 Type II certified, GDPR compliant, and built with end-to-end encryption. Role-based access control, audit logs, and SSO support give your IT team full confidence.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" aria-labelledby="hiw-title">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-label" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="7" r="6"/><path d="M7 4v3l2 2"/></svg>
+        Process
+      </div>
+      <h2 class="section-title" id="hiw-title">Up and running in under 30 minutes</h2>
+      <p class="section-subtitle">We've removed every unnecessary step between your raw data and your first actionable insight.</p>
+    </div>
+    <div class="steps">
+      <div class="step fade-in fade-in-delay-1">
+        <div class="step-num" aria-hidden="true">1</div>
+        <h3 class="step-title">Connect Your Data Sources</h3>
+        <p class="step-desc">Use our one-click connectors to link your existing tools — Salesforce, HubSpot, BigQuery, Snowflake, and 200+ more. No custom code, no waiting on engineers.</p>
+      </div>
+      <div class="step fade-in fade-in-delay-2">
+        <div class="step-num" aria-hidden="true">2</div>
+        <h3 class="step-title">Build Your First Dashboard</h3>
+        <p class="step-desc">Choose from 80+ pre-built templates or start from scratch with our visual builder. Drag, drop, and customize until your data tells exactly the story it should.</p>
+      </div>
+      <div class="step fade-in fade-in-delay-3">
+        <div class="step-num" aria-hidden="true">3</div>
+        <h3 class="step-title">Share Insights & Take Action</h3>
+        <p class="step-desc">Invite your team, set automated alerts for key metric changes, and embed dashboards into your existing tools. Turn data into decisions — every single day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" aria-labelledby="about-title">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <div class="section-label" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 1l1.5 4h4.5l-3.5 2.5 1.5 4L7 9 3 11.5l1.5-4L1 5h4.5z"/></svg>
+          Our Story
+        </div>
+        <h2 class="section-title" id="about-title">Built by data practitioners, for data-driven teams</h2>
+        <p class="section-subtitle">We founded Newstatsdom in 2019 after spending years watching talented B2B teams struggle with fragmented tools, stale reports, and insights that arrived too late to matter. We knew there had to be a better way.</p>
+        <div class="about-values" style="margin-top:2rem">
+          <div class="about-value">
+            <div class="about-value-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M10 2l2 5h5l-4 3 1.5 5L10 12l-4.5 3L7 10 3 7h5z"/></svg>
+            </div>
+            <div class="about-value-text">
+              <h4>Customer Obsession</h4>
+              <p>Every feature we build starts with a real customer problem. We talk to 50+ customers per month to ensure we're solving what matters most.</p>
+            </div>
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l3 3"/></svg>
+            </div>
+            <div class="about-value-text">
+              <h4>Speed Without Compromise</h4>
+              <p>Fast dashboards and fast iteration cycles. We ship meaningful improvements every two weeks without sacrificing reliability or security.</p>
+            </div>
+          </div>
+          <div class="about-value">
+            <div class="about-value-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8z"/><path d="M10 6v4M10 14h.01"/></svg>
+            </div>
+            <div class="about-value-text">
+              <h4>Radical Transparency</h4>
+              <p>We publish our uptime metrics publicly, share our product roadmap openly, and price fairly — no hidden fees, no surprise overages.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in fade-in-delay-2">
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar">MK</div>
+            <div class="team-name">Marcus Kellner</div>
+            <div class="team-role">Co-Founder & CEO</div>
+            <div class="team-exp">18 years experience</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">SR</div>
+            <div class="team-name">Sophia Reyes</div>
+            <div class="team-role">Co-Founder & CTO</div>
+            <div class="team-exp">15 years experience</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">JN</div>
+            <div class="team-name">James Nakamura</div>
+            <div class="team-role">VP of Product</div>
+            <div class="team-exp">12 years experience</div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">AL</div>
+            <div class="team-name">Amara Levi</div>
+            <div class="team-role">Head of Customer Success</div>
+            <div class="team-exp">10 years experience</div>
+          </div>
+        </div>
+        <p style="font-size:0.875rem;color:var(--text-muted);margin-top:1.25rem;text-align:center;">Headquartered in San Francisco, CA · Remote team across 14 countries</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" aria-labelledby="testimonials-title">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-label" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M6 2H2v4c0 3.3 2.7 6 6 6V9c-1.1 0-2-.9-2-2V6h2V2zm8 0h-4v4c0 3.3-2.7 6-6 6v1c3.9 0 7-3.1 7-7V6h3V2z"/></svg>
+        Customer Stories
+      </div>
+      <h2 class="section-title" id="testimonials-title">Trusted by teams that move fast</h2>
+      <p class="section-subtitle">See how B2B teams across industries use Newstatsdom to turn data into their competitive advantage.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-in fade-in-delay-1">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+          <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+        </div>
+        <p class="testimonial-text">"Newstatsdom replaced four separate tools we were juggling. Our weekly reporting time dropped from 12 hours to under 90 minutes — and the insights are actually better. It's the first analytics platform our entire revenue team genuinely wants to use."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">CT</div>
+          <div>
+            <div class="testimonial-name">Claire Thompson</div>
+            <div class="testimonial-company">VP Revenue Operations · Meridian SaaS</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in fade-in-delay-2">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+          <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+        </div>
+        <p class="testimonial-text">"The real-time alerting alone paid for the subscription in the first month. We caught a critical funnel drop on a Tuesday morning before it became a Tuesday afternoon crisis. The team's confidence in our data has completely transformed."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">DP</div>
+          <div>
+            <div class="testimonial-name">Daniel Park</div>
+            <div class="testimonial-company">Director of Analytics · Orbis Logistics</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in fade-in-delay-3">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">
+          <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+        </div>
+        <p class="testimonial-text">"We evaluated seven platforms before choosing Newstatsdom. The combination of enterprise security, ease of use, and genuine responsiveness from their team made it an easy decision. We were live and sharing dashboards in under a week."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">RH</div>
+          <div>
+            <div class="testimonial-name">Rachel Hoffmann</div>
+            <div class="testimonial-company">Chief Data Officer · Vantage Financial Group</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-label" aria-hidden="true">FAQ</div>
+      <h2 class="section-title" id="faq-title">Questions we get asked most</h2>
+      <p class="section-subtitle">Can't find what you're looking for? Our team typically responds within 2 business hours.</p>
+    </div>
+    <div class="faq-list" role="list">
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1" id="faq-btn-1">
+          How does the 14-day free trial work?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-btn-1">
+          <div class="faq-answer-inner">Your 14-day free trial gives you full access to all Newstatsdom features — no feature limits, no credit card required. At the end of your trial, you can choose a plan that fits your team's size and needs. If you decide not to continue, your account is simply closed and your data is securely deleted per our data retention policy.</div>
+        </div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" id="faq-btn-2">
+          Which data sources and integrations are supported?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-btn-2">
+          <div class="faq-answer-inner">Newstatsdom supports 200+ native integrations including Salesforce, HubSpot, Marketo, Google Analytics, Snowflake, BigQuery, Redshift, PostgreSQL, MySQL, Stripe, Zendesk, Intercom, and many more. We also offer a flexible REST API and webhook system for custom integrations. If you don't see your tool listed, contact our team — we prioritize new connectors based on customer demand.</div>
+        </div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" id="faq-btn-3">
+          Is Newstatsdom secure and compliant?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-btn-3">
+          <div class="faq-answer-inner">Security is foundational to Newstatsdom. We are SOC 2 Type II certified, GDPR compliant, and CCPA compliant. All data is encrypted at rest (AES-256) and in transit (TLS 1.3). We offer role-based access control, SSO via SAML 2.0, audit logs, and IP allowlisting. Enterprise customers also receive a dedicated Data Processing Agreement (DPA). Our security documentation is available on request.</div>
+        </div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" id="faq-btn-4">
+          How does pricing work for larger teams?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-btn-4">
+          <div class="faq-answer-inner">Newstatsdom offers transparent, seat-based pricing across three tiers: Starter (up to 5 users), Professional (up to 25 users), and Enterprise (unlimited users). Annual billing saves 20% compared to monthly. Enterprise customers receive volume discounts, a dedicated customer success manager, custom SLAs, and priority support. Contact our sales team for a custom quote tailored to your organization's needs.</div>
+        </div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5" id="faq-btn-5">
+          What kind of support does Newstatsdom provide?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-btn-5">
+          <div class="faq-answer-inner">All customers receive access to our comprehensive documentation, video tutorials, and community forum. Professional and Enterprise plans include live chat support with a guaranteed 4-hour response time during business hours. Enterprise customers receive a dedicated Customer Success Manager, quarterly business reviews, and access to our 24/7 emergency support line. We also offer onboarding sessions and training workshops for teams of 10 or more.</div>
+        </div>
+      </div>
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6" id="faq-btn-6">
+          Can I export my data if I decide to leave?
+          <svg class="faq-chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg>
+        </button>
+        <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-btn-6">
+          <div class="faq-answer-inner">Absolutely. Your data is always yours. Newstatsdom provides a full data export feature in CSV, JSON, and Parquet formats. You can export dashboards, reports, and raw data at any time from your account settings. Upon account closure, we provide a 30-day window to download all your data before it is permanently and securely deleted from our systems in accordance with our data retention policy.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="section-label" aria-hidden="true">Get In Touch</div>
+      <h2 class="section-title" id="contact-title">Let's find the right plan for your team</h2>
+      <p class="section-subtitle">Talk to a product specialist, request a demo, or just ask a question. We respond to every inquiry within one business day.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-in">
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M2 4h16v12H2z"/><path d="M2 4l8 7 8-7"/></svg>
+          </div>
+          <div class="contact-info-text">
+            <h4>Email Us</h4>
+            <a href="mailto:info@newstatsdom.com">info@newstatsdom.com</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M15.05 11.9c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.7-.2-1 .2-.3.4-1.1 1.3-1.4 1.6-.3.3-.5.3-.9.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.2-.4.3-.7.1-.3 0-.5-.1-.7-.1-.2-.9-2.2-1.2-3-.3-.8-.7-.7-1-.7H2c-.3 0-.7.1-1.1.5-.4.4-1.4 1.4-1.4 3.4s1.5 4 1.7 4.3c.2.3 2.9 4.5 7.1 6.3 1 .4 1.8.7 2.4.9.9.3 1.7.2 2.4.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.2-.4-.3-.8-.5z"/></svg>
+          </div>
+          <div class="contact-info-text">
+            <h4>Call Us</h4>
+            <a href="tel:+14155550182">+1 (415) 555-0182</a>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M10 2C6.69 2 4 4.69 4 8c0 4.5 6 10 6 10s6-5.5 6-10c0-3.31-2.69-6-6-6z"/><circle cx="10" cy="8" r="2"/></svg>
+          </div>
+          <div class="contact-info-text">
+            <h4>Headquarters</h4>
+            <p>548 Market Street, Suite 1200<br>San Francisco, CA 94104<br>United States</p>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><circle cx="10" cy="10" r="8"/><path d="M10 6v4l2.5 2.5"/></svg>
+          </div>
+          <div class="contact-info-text">
+            <h4>Business Hours</h4>
+            <p>Monday – Friday: 9:00 AM – 6:00 PM PST<br>Enterprise: 24/7 emergency support available</p>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in fade-in-delay-2">
+        <form class="contact-form" id="contact-form" novalidate aria-label="Contact form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="form-name">Full Name <span aria-hidden="true">*</span></label>
+              <input class="form-input" type="text" id="form-name" name="name" placeholder="Jane Smith" required autocomplete="name" aria-required="true" aria-describedby="form-name-error">
+              <div class="form-error" id="form-name-error" role="alert" aria-live="polite">Please enter your full name.</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="form-email">Work Email <span aria-hidden="true">*</span></label>
+              <input class="form-input" type="email" id="form-email" name="email" placeholder="jane@company.com" required autocomplete="email" aria-required="true" aria-describedby="form-email-error">
+              <div class="form-error" id="form-email-error" role="alert" aria-live="polite">Please enter a valid email address.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form-company">Company Name</label>
+            <input class="form-input" type="text" id="form-company" name="company" placeholder="Acme Corporation" autocomplete="organization">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="form-message">How can we help? <span aria-hidden="true">*</span></label>
+            <textarea class="form-input" id="form-message" name="message" placeholder="Tell us about your team's analytics needs, the tools you're currently using, or any questions you have..." required aria-required="true" aria-describedby="form-message-error"></textarea>
+            <div class="form-error" id="form-message-error" role="alert" aria-live="polite">Please enter your message (at least 10 characters).</div>
+          </div>
+          <button type="submit" class="form-submit" id="form-submit" aria-label="Send your message to Newstatsdom">
+            Send Message
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY POLICY -->
+<section id="privacy" aria-labelledby="privacy-title">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label" aria-hidden="true">Legal</div>
+      <h2 class="section-title" id="privacy-title">Privacy Policy</h2>
+    </div>
+    <div class="legal-content fade-in">
+      <p class="legal-date">Last updated: March 15, 2026</p>
+      <p>Newstatsdom, Inc. ("Newstatsdom", "we", "our", or "us") is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our analytics platform and website at newstatsdom.com.</p>
+      <h3>Information We Collect</h3>
+      <p>We collect information you provide directly, including name, email address, company name, and payment information when you register for or use our services. We also automatically collect usage data, device identifiers, IP addresses, browser type, and interaction data through cookies and similar tracking technologies.</p>
+      <h3>How We Use Your Information</h3>
+      <p>We use your information to provide, maintain, and improve our services; process transactions; send administrative communications; respond to inquiries; and comply with legal obligations. We do not sell your personal data to third parties.</p>
+      <h3>Data Sharing and Third Parties</h3>
+      <p>We may share data with trusted service providers (such as cloud hosting, payment processors, and analytics vendors) who assist in operating our platform, subject to strict confidentiality obligations. We may also disclose information when required by law or to protect our legal rights.</p>
+      <h3>Cookies</h3>
+      <p>We use essential, functional, and analytics cookies. You may control cookie preferences via our cookie banner or your browser settings. Declining non-essential cookies will not affect your ability to use core features.</p>
+      <h3>Data Retention</h3>
+      <p>We retain personal data for as long as your account is active or as needed to provide services. Upon account closure, data is deleted within 30 days unless retention is required by law.</p>
+      <h3>Your Rights (GDPR &amp; CCPA)</h3>
+      <p>If you are located in the European Economic Area or California, you have rights including access, rectification, erasure, portability, and the right to object to processing. To exercise these rights, contact us at info@newstatsdom.com. We will respond within 30 days.</p>
+      <h3>Contact</h3>
+      <p>For privacy inquiries, contact our Data Protection Officer at info@newstatsdom.com or write to 548 Market Street, Suite 1200, San Francisco, CA 94104.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TERMS OF SERVICE -->
+<section id="terms" aria-labelledby="terms-title">
+  <div class="container">
+    <div class="fade-in">
+      <div class="section-label" aria-hidden="true">Legal</div>
+      <h2 class="section-title" id="terms-title">Terms of Service</h2>
+    </div>
+    <div class="legal-content fade-in">
+      <p class="legal-date">Last updated: March 15, 2026</p>
+      <p>These Terms of Service ("Terms") govern your access to and use of the Newstatsdom platform and services provided by Newstatsdom, Inc. By accessing or using our services, you agree to be bound by these Terms. If you do not agree, you may not use our services.</p>
+      <h3>Eligibility and Accounts</h3>
+      <p>You must be at least 18 years old and have the authority to bind your organization to these Terms. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized access.</p>
+      <h3>Acceptable Use</h3>
+      <p>You may use Newstatsdom only for lawful business purposes and in accordance with these Terms. You agree not to: reverse engineer or attempt to extract source code; use the platform to transmit malware or harmful content; circumvent security measures; or resell access without written authorization.</p>
+      <h3>Subscription and Billing</h3>
+      <p>Subscription fees are billed in advance on a monthly or annual basis. All fees are non-refundable except as expressly stated. We reserve the right to modify pricing with 30 days' written notice. Failure to pay may result in suspension of your account.</p>
+      <h3>Intellectual Property</h3>
+      <p>Newstatsdom and its licensors retain all rights, title, and interest in the platform, including all intellectual property rights. You retain ownership of all data you submit to the platform. You grant us a limited license to process your data solely to provide the services.</p>
+      <h3>Limitation of Liability</h3>
+      <p>To the maximum extent permitted by law, Newstatsdom's liability for any claim arising under these Terms shall not exceed the fees paid by you in the three months preceding the claim. We are not liable for indirect, incidental, or consequential damages.</p>
+      <h3>Governing Law</h3>
+      <p>These Terms are governed by the laws of the State of California, USA. Disputes shall be resolved through binding arbitration in San Francisco, CA, except where prohibited by applicable law.</p>
+      <h3>Contact</h3>
+      <p>For questions about these Terms, contact us at info@newstatsdom.com.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo" aria-label="Newstatsdom home">
+          <div class="nav-logo-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="10" width="3" height="7" rx="1" fill="white"/><rect x="7" y="6" width="3" height="11" rx="1" fill="white"/><rect x="13" y="1" width="3" height="16" rx="1" fill="white"/></svg>
+          </div>
+          Newstatsdom
+        </a>
+        <p>The professional analytics platform built for B2B teams who need clarity, speed, and confidence in every decision.</p>
+        <div class="footer-social" aria-label="Social media links">
+          <a href="#" class="social-btn" aria-label="Newstatsdom on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="Newstatsdom on Twitter/X">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="Newstatsdom on GitHub">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#testimonials">Customer Stories</a></li>
+          <li><a href="#contact">Pricing</a></li>
+          <li><a href="#contact">Request Demo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Careers</a></li>
+          <li><a href="#contact">Press</a></li>
+          <li><a href="#contact">Partners</a></li>
+          <li><a href="#contact">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#terms">Terms of Service</a></li>
+          <li><a href="#contact">Security</a></li>
+          <li><a href="#contact">Cookie Policy</a></li>
+          <li><a href="#contact">DPA</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Newstatsdom, Inc. All rights reserved. 548 Market Street, Suite 1200, San Francisco, CA 94104</p>
+      <div class="footer-bottom-links">
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Cookie consent" aria-describedby="cookie-text">
+  <div class="cookie-inner">
+    <p class="cookie-text" id="cookie-text">We use cookies to enhance your experience, analyze site traffic, and serve relevant content. By clicking "Accept All", you consent to our use of cookies. Read our <a href="#privacy">Privacy Policy</a> for more details.</p>
+    <div class="cookie-actions">
+      <button class="btn-cookie-decline" id="cookie-decline" aria-label="Decline non-essential cookies">Decline</button>
+      <button class="btn-cookie-accept" id="cookie-accept" aria-label="Accept all cookies">Accept All</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script>
+(function(){
+'use strict';
+
+// NAV SCROLL
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',function(){
+  navbar.classList.toggle('scrolled',window.scrollY>20);
+},{passive:true});
+
+// HAMBURGER
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobile-menu');
+hamburger.addEventListener('click',function(){
+  const isOpen=mobileMenu.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded',String(isOpen));
+});
+window.closeMobileMenu=function(){
+  mobileMenu.classList.remove('open');
+  hamburger.setAttribute('aria-expanded','false');
+};
+document.addEventListener('click',function(e){
+  if(!navbar.contains(e.target)&&!mobileMenu.contains(e.target)){
+    closeMobileMenu();
+  }
+});
+
+// INTERSECTION OBSERVER
+const fadeEls=document.querySelectorAll('.fade-in');
+const observer=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+fadeEls.forEach(function(el){observer.observe(el);});
+
+// FAQ ACCORDION
+const faqItems=document.querySelectorAll('.faq-item');
+faqItems.forEach(function(item){
+  const btn=item.querySelector('.faq-question');
+  btn.addEventListener('click',function(){
+    const isOpen=item.classList.contains('open');
+    faqItems.forEach(function(i){
+      i.classList.remove('open');
+      i.querySelector('.faq-question').setAttribute('aria-expanded','false');
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded','true');
+    }
+  });
+});
+
+// FORM VALIDATION
+function showError(inputId,errorId,show){
+  const input=document.getElementById(inputId);
+  const error=document.getElementById(errorId);
+  if(input&&error){
+    input.classList.toggle('error',show);
+    error.classList.toggle('visible',show);
+  }
+}
+function validateEmail(email){
+  return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+function showToast(message,duration){
+  duration=duration||4000;
+  const toast=document.getElementById('toast');
+  toast.textContent=message;
+  toast.classList.add('show');
+  setTimeout(function(){toast.classList.remove('show');},duration);
+}
+const form=document.getElementById('contact-form');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  let valid=true;
+  const name=document.getElementById('form-name').value.trim();
+  const email=document.getElementById('form-email').value.trim();
+  const message=document.getElementById('form-message').value.trim();
+  if(!name||name.length<2){showError('form-name','form-name-error',true);valid=false;}
+  else{showError('form-name','form-name-error',false);}
+  if(!email||!validateEmail(email)){showError('form-email','form-email-error',true);valid=false;}
+  else{showError('form-email','form-email-error',false);}
+  if(!message||message.length<10){showError('form-message','form-message-error',true);valid=false;}
+  else{showError('form-message','form-message-error',false);}
+  if(!valid)return;
+  const btn=document.getElementById('form-submit');
+  btn.disabled=true;
+  btn.textContent='Sending...';
+  setTimeout(function(){
+    btn.disabled=false;
+    btn.innerHTML='Send Message <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M10 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    form.reset();
+    showToast('✓ Message sent! We\'ll be in touch within one business day.');
+  },1200);
+});
+
+// COOKIE BANNER
+const banner=document.getElementById('cookie-banner');
+const acceptBtn=document.getElementById('cookie-accept');
+const declineBtn=document.getElementById('cookie-decline');
+function hideBanner(){banner.classList.remove('visible');}
+if(!localStorage.getItem('nsd_cookie_pref')){
+  setTimeout(function(){banner.classList.add('visible');},1200);
+}
+acceptBtn.addEventListener('click',function(){
+  localStorage.setItem('nsd_cookie_pref','accepted');
+  hideBanner();
+});
+declineBtn.addEventListener('click',function(){
+  localStorage.setItem('nsd_cookie_pref','declined');
+  hideBanner();
+});
+
+// SMOOTH SCROLL FOR ANCHOR LINKS
+document.querySelectorAll('a[href^="#"]').forEach(function(link){
+  link.addEventListener('click',function(e){
+    const target=document.querySelector(link.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      const offset=80;
+      const top=target.getBoundingClientRect().top+window.scrollY-offset;
+      window.scrollTo({top:top,behavior:'smooth'});
+    }
+  });
+});
+
+})();
+</script>
+</body>
+</html>
